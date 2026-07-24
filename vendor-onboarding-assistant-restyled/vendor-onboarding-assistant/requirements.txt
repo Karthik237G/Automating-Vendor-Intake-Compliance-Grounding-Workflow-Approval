@@ -1,0 +1,23 @@
+# --- Backend API (backend/main.py, backend/rag_service.py) ------------------
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+python-multipart>=0.0.9        # required by FastAPI for File(...)/UploadFile
+python-dotenv>=1.0.1
+pydantic>=2.7.0
+
+# --- PDF text extraction ------------------------------------------------------
+pypdf>=4.2.0
+pdfplumber>=0.11.0
+
+# --- Dates & parsing -----------------------------------------------------------
+python-dateutil>=2.9.0
+
+# --- Vector store + LLM gateway client ----------------------------------------
+chromadb>=0.5.0
+openai>=1.30.0                 # OpenAI-compatible client used against the gateway
+
+# --- Vendor correction / approval emails ---------------------------------------
+resend>=1.0.0
+
+# --- Synthetic test data (generate_test_pdfs.py) --------------------------------
+reportlab>=4.2.0

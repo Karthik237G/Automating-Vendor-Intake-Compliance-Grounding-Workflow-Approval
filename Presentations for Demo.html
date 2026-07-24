@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vendor Onboarding & Approval Assistant Pitch</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+        :root {
+            --primary-blue: #1e3a8a;
+            --accent-cyan: #22d3ee;
+            --accent-green: #22c55e;
+            --accent-red: #ef4444;
+        }
+
+        body, html {
+            margin: 0; padding: 0;
+            height: 100%; overflow: hidden;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #f1f5f9;
+        }
+
+        /* Slide Animation Logic */
+        .slide-track {
+            display: flex;
+            width: 800%;
+            height: 100vh;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Background Vendor Watermark Pattern */
+        .slide-bg-pattern {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(#cbd5e1 1.2px, transparent 1.2px);
+            background-size: 24px 24px;
+            opacity: 0.55;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Header Style */
+        .header-gradient {
+            background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%);
+            padding: 1.25rem 5%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.6);
+            position: relative;
+            z-index: 5;
+        }
+
+        /* Nav Buttons */
+        .nav-btn {
+            position: fixed;
+            bottom: 25px;
+            background: #1e3a8a;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+        }
+        .nav-btn:hover { transform: translateY(-3px); background: #3b82f6; }
+        #prevBtn { left: 40px; }
+        #nextBtn { right: 40px; }
+
+        .progress-bar {
+            position: fixed;
+            top: 0; left: 0;
+            height: 5px;
+            background: var(--accent-cyan);
+            z-index: 1001;
+            transition: width 0.4s ease;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 12px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #64748b;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            z-index: 10;
+        }
+
+        /* Tech Tag Styling */
+        .tech-badge {
+            background: rgba(30, 58, 138, 0.08);
+            border: 1px solid rgba(30, 58, 138, 0.2);
+            color: #1e3a8a;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar" id="progBar"></div>
+
+    <div class="slide-track" id="slider">
+        
+        <!-- Slide 1: Title Slide -->
+        <section class="slide">
+            <div class="slide-bg-pattern"></div>
+            <header class="header-gradient text-white flex justify-between items-center">
+                <div>
+                    <h1 class="text-3xl font-extrabold tracking-tight">AI Vendor Onboarding & Approval Assistant</h1>
+                    <p class="text-blue-100 opacity-80 uppercase text-xs tracking-widest font-bold">Slide 01: Intelligent Vendor Management</p>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-handshake text-3xl opacity-80"></i>
+                    <i class="fas fa-shield-check text-3xl opacity-80"></i>
+                </div>
+            </header>
+            <main class="flex-grow flex items-center px-12 relative z-10">
+                <div class="grid md:grid-cols-12 gap-8 w-full max-w-6xl mx-auto items-center">
+                    <div class="md:col-span-7 glass-card p-10 border-l-8 border-blue-800">
+                        <span class="bg-blue-100 text-blue-900 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">Next-Gen Procurement</span>
+                        <h2 class="text-3xl font-extrabold text-blue-950 mb-4 leading-tight">Automating Vendor Intake, Compliance Grounding & Workflow Approval</h2>
+                        <p class="text-gray-600 leading-relaxed text-base mb-6">
+                            Transforming unstructured vendor documents (Registration, Tax, Bank, Insurance) into grounded, zero-hallucination compliance summaries using <strong>gpt-4o</strong>, accessible <strong>Whisper Audio</strong> narrations, and <strong>sentence-transformers</strong>.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2 border-t border-gray-200">
+                            <span class="tech-badge"><i class="fas fa-brain mr-1 text-cyan-600"></i> gpt-4o & Whisper</span>
+                            <span class="tech-badge"><i class="fas fa-database mr-1 text-purple-600"></i> ChromaDB & MiniLM</span>
+                            <span class="tech-badge"><i class="fas fa-bolt mr-1 text-amber-500"></i> FastAPI Backend</span>
+                            <span class="tech-badge"><i class="fab fa-react mr-1 text-blue-500"></i> React UI</span>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5 grid grid-cols-2 gap-4">
+                        <!-- Updated Card: Global & Multilingual -->
+                        <div class="glass-card p-6 text-center border-t-4 border-blue-600">
+                            <i class="fas fa-globe text-3xl text-blue-600 mb-2"></i>
+                            <h4 class="font-bold text-gray-800 text-sm">Global & Multilingual</h4>
+                            <p class="text-[11px] text-gray-500 mt-1">Cross-border document parsing support</p>
+                        </div>
+                        <div class="glass-card p-6 text-center border-t-4 border-cyan-500">
+                            <i class="fas fa-file-shield text-3xl text-cyan-500 mb-2"></i>
+                            <h4 class="font-bold text-gray-800 text-sm">Insurance Certs</h4>
+                            <p class="text-[11px] text-gray-500 mt-1">Expiry date & limit checks</p>
+                        </div>
+                        <div class="glass-card p-6 text-center border-t-4 border-purple-500">
+                            <i class="fas fa-scale-balanced text-3xl text-purple-500 mb-2"></i>
+                            <h4 class="font-bold text-gray-800 text-sm">Compliance Rules</h4>
+                            <p class="text-[11px] text-gray-500 mt-1">Semantic vector retrieval</p>
+                        </div>
+                        <div class="glass-card p-6 text-center border-t-4 border-emerald-500">
+                            <i class="fas fa-user-check text-3xl text-emerald-500 mb-2"></i>
+                            <h4 class="font-bold text-gray-800 text-sm">Approval Matrix</h4>
+                            <p class="text-[11px] text-gray-500 mt-1">Dynamic escrow routing</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </section>
+
+        <!-- Slide 2: Business Problem & Opportunity -->
+        <section class="slide">
+            <div class="slide-bg-pattern"></div>
+            <header class="header-gradient text-white flex justify-between items-center">
+                <div>
+                    <h1 class="text-3xl font-extrabold">The Vendor Onboarding Bottleneck</h1>
+                    <p class="text-blue-100 opacity-80 uppercase text-xs tracking-widest font-bold">Slide 02: Business Problem & Opportunity</p>
+                </div>
+                <i class="fas fa-triangle-exclamation text-3xl opacity-40"></i>
+            </header>
+            <main class="flex-grow flex items-center px-12 relative z-10">
+                <div class="grid md:grid-cols-2 gap-8 w-full max-w-6xl mx-auto">
+                    <!-- 2.1 Problem Statement -->
+                    <div class="glass-card p-8 border-l-8 border-red-500">
+                        <h2 class="text-2xl font-bold text-red-600 mb-6 flex items-center">
+                            <i class="fas fa-exclamation-triangle mr-3"></i> 2.1 Problem Statement
+                        </h2>
+                        <ul class="space-y-4 text-gray-700 text-base">
+                            <li class="flex items-start">
+                                <i class="fas fa-minus-circle mr-3 text-red-500 mt-1"></i>
+                                <span><strong>Manual Document Fatigue:</strong> Reviewing 5-10 unstructured vendor PDFs (Tax, Bank, Insurance, Compliance) takes 10-14 days per submission.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-minus-circle mr-3 text-red-500 mt-1"></i>
+                                <span><strong>High Operational Risk:</strong> Human oversight misses expired certificates, entity name mismatches, or policy coverage gaps.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-minus-circle mr-3 text-red-500 mt-1"></i>
+                                <span><strong>Inconsistent Resubmissions:</strong> Manual follow-up emails for missing/unreadable files lead to endless back-and-forth delays.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- 2.2 Opportunity -->
+                    <div class="glass-card p-8 border-l-8 border-green-500">
+                        <h2 class="text-2xl font-bold text-green-600 mb-6 flex items-center">
+                            <i class="fas fa-lightbulb mr-3"></i> 2.2 The Opportunity
+                        </h2>
+                        <ul class="space-y-4 text-gray-700 text-base">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle mr-3 text-green-500 mt-1"></i>
+                                <span><strong>Automated Document Extraction:</strong> Instant OCR & parsing of registration forms, tax IDs, and bank proofs.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle mr-3 text-green-500 mt-1"></i>
+                                <span><strong>Vector-Grounded Policy Validation:</strong> Semantic RAG search matches submission data directly against compliance guidelines.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle mr-3 text-green-500 mt-1"></i>
+                                <span><strong>Streamlined Approval Pipeline:</strong> Straight-through procurement approval for valid cases; automated escrow for exceptions.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+        </section>
+
+        <!-- Slide 3: Our Solution -->
+        <section class="slide">
+            <div class="slide-bg-pattern"></div>
+            <header class="header-gradient text-white flex justify-between items-center">
+                <div>
+                    <h1 class="text-3xl font-extrabold">Proposed Solution: AI Onboarding Assistant</h1>
+                    <p class="text-blue-100 opacity-80 uppercase text-xs tracking-widest font-bold">Slide 03: Core Platform Capabilities</p>
+                </div>
+                <i class="fas fa-wand-magic-sparkles text-3xl opacity-40"></i>
+            </header>
+            <main class="flex-grow flex items-center px-12 relative z-10">
+                <div class="grid grid-cols-3 gap-6 w-full max-w-6xl mx-auto">
+                    <div class="glass-card p-8 border-t-4 border-cyan-400 text-center">
+                        <div class="w-16 h-16 bg-cyan-50 rounded-full flex items-center justify-center mx-auto mb-4 text-cyan-600 text-2xl">
+                            <i class="fas fa-id-card-clip"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3 text-gray-800">1. Document Intelligence</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            Extracts structured fields from registration forms, tax documents, bank proofs, and insurance certificates with multi-document cross-validation.
+                        </p>
+                    </div>
+                    <div class="glass-card p-8 border-t-4 border-purple-500 text-center">
+                        <div class="w-16 h-16 bg-purple-50 rounded-full flex items-center justify-center mx-auto mb-4 text-purple-600 text-2xl">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3 text-gray-800">2. Vector Policy RAG</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            Embeds and stores compliance rules & checklists in a vector database to perform instant semantic policy grounding and completeness checks.
+                        </p>
+                    </div>
+                    <div class="glass-card p-8 border-t-4 border-emerald-500 text-center">
+                        <div class="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-4 text-emerald-600 text-2xl">
+                            <i class="fas fa-diagram-project"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3 text-gray-800">3. Guided Workflow & Audit</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            Auto-drafts correction requests for invalid files, routes risks to compliance reviewers, and maintains a complete decision audit trail.
+                        </p>
+                    </div>
+                </div>
+            </main>
+        </section>
+
+        <!-- Slide 4: End-to-End Workflow -->
+        <section class="slide">
+            <div class="slide-bg-pattern"></div>
+            <header class="header-gradient text-white flex justify-between items-center">
+                <div>
+                    <h1 class="text-3xl font-extrabold">End-to-End Onboarding Workflow</h1>
+                    <p class="text-blue-100 opacity-80 uppercase text-xs tracking-widest font-bold">Slide 04: Three Operational Pathways</p>
+                </div>
+                <i class="fas fa-route text-3xl opacity-40"></i>
+            </header>
+            <main class="flex-grow flex items-center px-10 relative z-10">
+                <div class="grid grid-cols-3 gap-6 w-full max-w-6xl mx-auto">
+                    <!-- 4.1 Happy Path -->
+                    <div class="glass-card p-6 border-t-4 border-emerald-500 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase">4.1 Happy Path</span>
+                                <i class="fas fa-circle-check text-emerald-500 text-xl"></i>
+                            </div>
+                            <h4 class="font-bold text-lg text-gray-800 mb-2">Straight-Through Approval</h4>
+                            <p class="text-xs text-gray-600 mb-4">All 5-10 docs uploaded, valid expiry dates, matching legal names, and full checklist compliance.</p>
+                            <ul class="text-xs text-gray-600 space-y-2 border-t border-gray-200 pt-3">
+                                <li>• Auto-extracts key metadata</li>
+                                <li>• Semantic vector policy check PASS</li>
+                                <li>• Direct Procurement sign-off & notification</li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 p-2 bg-emerald-50 rounded border border-emerald-200 text-center text-xs font-bold text-emerald-700">
+                            Status: APPROVED & RECORDED
+                        </div>
+                    </div>
+
+                    <!-- 4.2 Invalid / Expired / Mismatched -->
+                    <div class="glass-card p-6 border-t-4 border-amber-500 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full uppercase">4.2 Resubmission Loop</span>
+                                <i class="fas fa-arrow-rotate-left text-amber-500 text-xl"></i>
+                            </div>
+                            <h4 class="font-bold text-lg text-gray-800 mb-2">Correction Request Trigger</h4>
+                            <p class="text-xs text-gray-600 mb-4">Detected expired insurance certificate or mismatch between tax ID and bank registration name.</p>
+                            <ul class="text-xs text-gray-600 space-y-2 border-t border-gray-200 pt-3">
+                                <li>• Identifies exact missing/invalid field</li>
+                                <li>• AI auto-drafts specific correction email</li>
+                                <li>• Re-evaluates case upon resubmission</li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 p-2 bg-amber-50 rounded border border-amber-200 text-center text-xs font-bold text-amber-700">
+                            Status: CORRECTION REQUESTED
+                        </div>
+                    </div>
+
+                    <!-- 4.3 Policy Exception / Risk Flag -->
+                    <div class="glass-card p-6 border-t-4 border-red-500 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full uppercase">4.3 Policy Exception</span>
+                                <i class="fas fa-shield-cat text-red-500 text-xl"></i>
+                            </div>
+                            <h4 class="font-bold text-lg text-gray-800 mb-2">Compliance Review Escrow</h4>
+                            <p class="text-xs text-gray-600 mb-4">Insurance policy coverage below standard threshold or non-standard compliance declaration.</p>
+                            <ul class="text-xs text-gray-600 space-y-2 border-t border-gray-200 pt-3">
+                                <li>• RAG flags specific policy deviation</li>
+                                <li>• Prepares Risk & Compliance Summary</li>
+                                <li>• Routes to Compliance Officer for manual sign-off</li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 p-2 bg-red-50 rounded border border-red-200 text-center text-xs font-bold text-red-700">
+                            Status: ESCALATED TO COMPLIANCE
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </section>
+
+        <!-- Slide 5: SVG Technical Architecture -->
+        <section class="slide bg-slate-100">
+            <div class="slide-bg-pattern"></div>
+            <header class="header-gradient text-white flex justify-between items-center shrink-0">
+                <div>
+                    <h1 class="text-3xl font-extrabold">System Architecture & Pipeline</h1>
+                    <p class="text-blue-100 opacity-80 uppercase text-xs tracking-widest font-bold">Slide 05: Technical Pipeline</p>
+                </div>
+                <i class="fas fa-network-wired text-3xl opacity-40"></i>
+            </header>
+            
+            <!-- FIXED LAYOUT: Vertical Flex column to maximize SVG and shrink bottom cards -->
+            <main class="flex-grow flex flex-col justify-between items-center px-6 py-6 relative z-10 overflow-hidden">
+                
+                <!-- TOP SECTION: Huge SVG Container -->
+                <div class="w-full max-w-[95%] mx-auto flex-grow flex justify-center items-center min-h-0">
+                    
+                    <!-- MASTER SVG INJECTION -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1150 580" class="w-full h-full max-h-[75vh] object-contain drop-shadow-2xl" style="background: linear-gradient(135deg, #eef2f6 0%, #e2e8f0 100%); border-radius: 18px;">
+                      <defs>
+                        <!-- Shadows & Filters -->
+                        <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+                          <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.12"/>
+                        </filter>
+                        <filter id="glassShadow" x="-5%" y="-5%" width="110%" height="110%">
+                          <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#1e293b" flood-opacity="0.08"/>
+                        </filter>
+                        <filter id="glowBlue" x="-20%" y="-20%" width="140%" height="140%">
+                          <feGaussianBlur stdDeviation="6" result="blur" />
+                          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        </filter>
+
+                        <!-- Gradients -->
+                        <linearGradient id="layerBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+                          <stop offset="0%" stop-color="#e0f2fe" stop-opacity="0.8"/>
+                          <stop offset="100%" stop-color="#bae6fd" stop-opacity="0.4"/>
+                        </linearGradient>
+                        <linearGradient id="layerGray" x1="0%" y1="0%" x2="0%" y2="100%">
+                          <stop offset="0%" stop-color="#f8fafc" stop-opacity="0.9"/>
+                          <stop offset="100%" stop-color="#f1f5f9" stop-opacity="0.5"/>
+                        </linearGradient>
+                        <linearGradient id="layerPurple" x1="0%" y1="0%" x2="0%" y2="100%">
+                          <stop offset="0%" stop-color="#f3e8ff" stop-opacity="0.8"/>
+                          <stop offset="100%" stop-color="#e9d5ff" stop-opacity="0.4"/>
+                        </linearGradient>
+                        <linearGradient id="layerBottom" x1="0%" y1="0%" x2="0%" y2="100%">
+                          <stop offset="0%" stop-color="#e0f2fe" stop-opacity="0.6"/>
+                          <stop offset="100%" stop-color="#f1f5f9" stop-opacity="0.8"/>
+                        </linearGradient>
+
+                        <!-- Metallic Card Gradient -->
+                        <linearGradient id="metalCard" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#ffffff"/>
+                          <stop offset="100%" stop-color="#f1f5f9"/>
+                        </linearGradient>
+                        <linearGradient id="goldBadge" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#fef08a"/>
+                          <stop offset="100%" stop-color="#f59e0b"/>
+                        </linearGradient>
+
+                        <!-- Arrow Markers -->
+                        <marker id="arrowGray" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                          <path d="M 0 1 L 10 5 L 0 9 z" fill="#475569"/>
+                        </marker>
+                        <marker id="arrowBlue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                          <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7"/>
+                        </marker>
+                        <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                          <path d="M 0 1 L 10 5 L 0 9 z" fill="#22c55e"/>
+                        </marker>
+                      </defs>
+
+                      <!-- ==================== LAYER 1: FRONTEND CONTAINER ==================== -->
+                      <rect x="180" y="20" width="220" height="420" rx="20" fill="url(#layerBlue)" stroke="#93c5fd" stroke-width="1.5" filter="url(#glassShadow)"/>
+                      <text x="290" y="45" font-weight="800" font-size="13" fill="#1e40af" text-anchor="middle">Frontend: React UI</text>
+                      <text x="290" y="60" font-weight="600" font-size="11" fill="#3b82f6" text-anchor="middle">Application Screen</text>
+
+                      <!-- React Window Mockup -->
+                      <g filter="url(#shadow)" transform="translate(195, 75)">
+                        <!-- Window Header -->
+                        <rect x="0" y="0" width="190" height="230" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+                        <rect x="0" y="0" width="190" height="22" rx="12" fill="#e2e8f0"/>
+                        <circle cx="12" cy="11" r="3.5" fill="#ef4444"/>
+                        <circle cx="22" cy="11" r="3.5" fill="#f59e0b"/>
+                        <circle cx="32" cy="11" r="3.5" fill="#22c55e"/>
+                        <text x="95" y="15" font-size="8" font-weight="700" fill="#64748b" text-anchor="middle">Vendor Onboarding Portal</text>
+                        
+                        <!-- UI Controls Mockup -->
+                        <rect x="12" y="32" width="166" height="32" rx="6" fill="#2563eb"/>
+                        <text x="95" y="52" fill="#ffffff" font-size="10" font-weight="700" text-anchor="middle">Submit Vendor Docs</text>
+
+                        <rect x="12" y="72" width="166" height="32" rx="6" fill="#ea580c"/>
+                        <text x="95" y="92" fill="#ffffff" font-size="10" font-weight="700" text-anchor="middle">Validate Compliance</text>
+
+                        <!-- Status Badge Mockup -->
+                        <rect x="12" y="115" width="166" height="100" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+                        <rect x="20" y="125" width="110" height="16" rx="4" fill="#dcfce7"/>
+                        <text x="75" y="136" fill="#15803d" font-size="8" font-weight="800" text-anchor="middle">Status: APPROVED</text>
+                        <text x="20" y="155" font-size="8" fill="#475569">• Entity: Kpower3 L</text>
+                        <text x="20" y="168" font-size="8" fill="#475569">• Checklist: 100% Passed</text>
+                        <text x="20" y="181" font-size="8" fill="#475569">• Expiry: 2028-12-31</text>
+                        <text x="20" y="194" font-size="8" fill="#475569">• Citation: Rule 4.2.1</text>
+                      </g>
+
+                      <!-- Green Box: Onboarding Staff Audio Dashboard -->
+                      <g filter="url(#shadow)" transform="translate(195, 320)">
+                        <rect x="0" y="0" width="190" height="70" rx="10" fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/>
+                        <rect x="0" y="0" width="190" height="20" rx="10" fill="#dcfce7"/>
+                        <text x="95" y="13" font-size="8" font-weight="800" fill="#166534" text-anchor="middle">Onboarding Staff Dashboard</text>
+                        
+                        <circle cx="20" cy="38" r="10" fill="#22c55e"/>
+                        <path d="M 17 35 L 17 41 L 20 41 L 24 44 L 24 32 L 20 35 Z" fill="#ffffff"/> <!-- Speaker Icon -->
+                        
+                        <text x="38" y="36" font-size="8" font-weight="800" fill="#15803d">AI Audio Summary</text>
+                        <text x="38" y="46" font-size="6.5" fill="#166534">Narrated by Agent 2 (Accessibility Enabled)</text>
+                        
+                        <rect x="38" y="54" width="140" height="6" rx="3" fill="#bbf7d0"/>
+                        <rect x="38" y="54" width="50" height="6" rx="3" fill="#22c55e"/> <!-- Audio progress bar -->
+                        <text x="178" y="50" font-size="5" font-weight="800" fill="#166534" text-anchor="end">Whisper (Mass)</text>
+                      </g>
+
+                      <!-- ==================== RAW INPUT PDFs (LEFT) ==================== -->
+                      <g filter="url(#shadow)" transform="translate(25, 120)">
+                        <rect x="0" y="0" width="115" height="150" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+                        <!-- PDF Header Red Tab -->
+                        <path d="M 0 10 Q 0 0 10 0 L 105 0 Q 115 0 115 10 L 115 28 L 0 28 Z" fill="#dc2626"/>
+                        <text x="57" y="18" fill="#ffffff" font-size="11" font-weight="800" text-anchor="middle">PDF PACKAGE</text>
+                        
+                        <text x="10" y="45" font-size="8" font-weight="700" fill="#1e293b">1. Reg Certificate</text>
+                        <text x="10" y="60" font-size="8" font-weight="700" fill="#1e293b">2. Tax ID / GSTIN</text>
+                        <text x="10" y="75" font-size="8" font-weight="700" fill="#1e293b">3. Bank Proof</text>
+                        <text x="10" y="90" font-size="8" font-weight="700" fill="#1e293b">4. Insurance Cert</text>
+                        <text x="10" y="105" font-size="8" font-weight="700" fill="#1e293b">5. Compliance Decl.</text>
+                        
+                        <rect x="10" y="118" width="95" height="20" rx="4" fill="#fee2e2" stroke="#fca5a5"/>
+                        <text x="57" y="131" fill="#991b1b" font-size="8" font-weight="700" text-anchor="middle">5–10 Vendor PDFs</text>
+                      </g>
+                      <text x="82" y="290" font-weight="700" font-size="11" fill="#475569" text-anchor="middle">Unstructured Vendor</text>
+                      <text x="82" y="304" font-weight="700" font-size="11" fill="#475569" text-anchor="middle">Documents</text>
+
+
+                      <!-- ==================== LAYER 2: BACKEND CONTAINER ==================== -->
+                      <rect x="440" y="20" width="220" height="420" rx="20" fill="url(#layerGray)" stroke="#cbd5e1" stroke-width="1.5" filter="url(#glassShadow)"/>
+                      <text x="550" y="45" font-weight="800" font-size="13" fill="#0f172a" text-anchor="middle">Backend: FastAPI Processing</text>
+                      <text x="550" y="60" font-weight="600" font-size="11" fill="#64748b" text-anchor="middle">Python / PyPDF Engine</text>
+
+                      <g filter="url(#shadow)" transform="translate(455, 75)">
+                        <rect x="0" y="0" width="190" height="340" rx="12" fill="url(#metalCard)" stroke="#cbd5e1"/>
+                        
+                        <!-- Python & PyPDF Branding Header -->
+                        <rect x="12" y="12" width="166" height="36" rx="8" fill="#1e293b"/>
+                        <text x="95" y="34" fill="#38bdf8" font-size="11" font-weight="800" text-anchor="middle">🐍 FastAPI + PyPDF</text>
+                        
+                        <!-- Extraction Table Mockup -->
+                        <rect x="12" y="58" width="166" height="120" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+                        <path d="M 12 78 L 178 78" stroke="#e2e8f0" stroke-width="1"/>
+                        <text x="20" y="72" font-size="8" font-weight="800" fill="#0f172a">Extracted Field</text>
+                        <text x="110" y="72" font-size="8" font-weight="800" fill="#0f172a">Parsed Value</text>
+
+                        <text x="20" y="92" font-size="8" fill="#475569">Entity Name</text>
+                        <text x="110" y="92" font-size="8" font-weight="700" fill="#0284c7">Kpower3 L</text>
+                        <text x="20" y="108" font-size="8" fill="#475569">Tax ID / GST</text>
+                        <text x="110" y="108" font-size="8" font-weight="700" fill="#0284c7">33AAAAA0000A1Z5</text>
+                        <text x="20" y="124" font-size="8" fill="#475569">Expiry Date</text>
+                        <text x="110" y="124" font-size="8" font-weight="700" fill="#16a34a">2028-12-31</text>
+                        <text x="20" y="140" font-size="8" fill="#475569">Policy Limit</text>
+                        <text x="110" y="140" font-size="8" font-weight="700" fill="#0284c7">$2,000,000</text>
+                        <text x="20" y="156" font-size="8" fill="#475569">Bank Match</text>
+                        <text x="110" y="156" font-size="8" font-weight="700" fill="#16a34a">100% Match</text>
+
+                        <rect x="12" y="190" width="166" height="135" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+                        <text x="95" y="210" font-size="9" font-weight="800" fill="#334155" text-anchor="middle">Data Pipeline Operations</text>
+                        <text x="22" y="230" font-size="8" fill="#64748b">• PyPDF Stream Text Parsing</text>
+                        <text x="22" y="248" font-size="8" fill="#64748b">• Overlapping Chunking (1000/100)</text>
+                        <text x="22" y="266" font-size="8" fill="#64748b">• Expiration Date Math Checks</text>
+                        <text x="22" y="284" font-size="8" fill="#64748b">• Normalization &amp; JSON Schema</text>
+                        <text x="22" y="302" font-size="8" fill="#64748b">• Cross-Doc Entity Match</text>
+                      </g>
+
+
+                      <!-- ==================== LAYER 3: INTELLIGENCE & RAG CONTAINER ==================== -->
+                      <rect x="700" y="20" width="420" height="420" rx="20" fill="url(#layerPurple)" stroke="#c084fc" stroke-width="1.5" filter="url(#glassShadow)"/>
+                      <text x="910" y="45" font-weight="800" font-size="13" fill="#6b21a8" text-anchor="middle">Intelligence Layer: Vector RAG &amp; Multi-Agent System</text>
+
+                      <!-- Agent 1: ChromaDB + Vector RAG -->
+                      <g filter="url(#shadow)" transform="translate(715, 75)">
+                        <!-- Red Box for Agent 1 -->
+                        <rect x="0" y="0" width="180" height="230" rx="12" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+                        <rect x="0" y="0" width="180" height="28" rx="12" fill="#f3e8ff"/>
+                        <text x="90" y="18" font-size="9" font-weight="800" fill="#7e22ce" text-anchor="middle">Agent 1: ChromaDB Vector Store</text>
+                        <text x="90" y="38" font-size="8" font-weight="700" fill="#a855f7" text-anchor="middle">(Embedding Policy Search)</text>
+
+                        <!-- Vector DB Illustration -->
+                        <rect x="25" y="52" width="130" height="75" rx="6" fill="#faf5ff" stroke="#e9d5ff"/>
+                        <circle cx="50" cy="75" r="5" fill="#a855f7"/>
+                        <circle cx="85" cy="65" r="5" fill="#7e22ce"/>
+                        <circle cx="115" cy="85" r="5" fill="#c084fc"/>
+                        <circle cx="70" cy="105" r="5" fill="#0284c7"/>
+                        <line x1="50" y1="75" x2="85" y2="65" stroke="#d8b4fe" stroke-width="1.5"/>
+                        <line x1="85" y1="65" x2="115" y2="85" stroke="#d8b4fe" stroke-width="1.5"/>
+                        <line x1="50" y1="75" x2="70" y2="105" stroke="#d8b4fe" stroke-width="1.5"/>
+                        <line x1="85" y1="65" x2="70" y2="105" stroke="#d8b4fe" stroke-width="1.5"/>
+
+                        <!-- Update: MiniLM Model -->
+                        <text x="15" y="142" font-size="7" fill="#6b21a8">• sentence-transformers/all-MiniLM-L6-v2</text>
+                        <text x="15" y="156" font-size="8" fill="#6b21a8">• Onboarding Checklist Index</text>
+                        <text x="15" y="170" font-size="8" fill="#6b21a8">• Policy Rules Semantic Query</text>
+                        <text x="15" y="184" font-size="8" fill="#6b21a8">• Relevant Rule Chunk Context</text>
+
+                        <rect x="15" y="196" width="150" height="22" rx="5" fill="url(#goldBadge)"/>
+                        <text x="90" y="210" font-size="8" font-weight="800" fill="#78350f" text-anchor="middle">🛡️ Grounded Policy RAG</text>
+                      </g>
+
+                      <!-- Agent 2: GPT-4o Reasoning Agent -->
+                      <g filter="url(#shadow)" transform="translate(925, 75)">
+                        <!-- Amber Box for Agent 2 -->
+                        <rect x="0" y="0" width="185" height="230" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="2"/>
+                        <rect x="0" y="0" width="185" height="34" rx="12" fill="#f1f5f9"/>
+                        <!-- Update: GPT-4o and Text-Embedding -->
+                        <text x="92" y="14" font-size="8.5" font-weight="800" fill="#0f172a" text-anchor="middle">Agent 2: gpt-4o</text>
+                        <text x="92" y="24" font-size="7" font-weight="700" fill="#475569" text-anchor="middle">w/ text-embedding-3-large</text>
+                        <text x="92" y="38" font-size="7" font-weight="700" fill="#475569" text-anchor="middle">(Compliance Auditor &amp; Router)</text>
+
+                        <!-- Neural Network Node Illustration -->
+                        <g transform="translate(92, 82)">
+                          <circle cx="-35" cy="-18" r="6" fill="#3b82f6"/>
+                          <circle cx="-35" cy="18" r="6" fill="#3b82f6"/>
+                          <circle cx="0" cy="-28" r="6" fill="#8b5cf6"/>
+                          <circle cx="0" cy="0" r="6" fill="#8b5cf6"/>
+                          <circle cx="0" cy="28" r="6" fill="#8b5cf6"/>
+                          <circle cx="35" cy="-18" r="6" fill="#10b981"/>
+                          <circle cx="35" cy="18" r="6" fill="#10b981"/>
+
+                          <line x1="-35" y1="-18" x2="0" y2="-28" stroke="#cbd5e1" stroke-width="1.5"/>
+                          <line x1="-35" y1="-18" x2="0" y2="0" stroke="#cbd5e1" stroke-width="1.5"/>
+                          <line x1="-35" y1="18" x2="0" y2="0" stroke="#cbd5e1" stroke-width="1.5"/>
+                          <line x1="-35" y1="18" x2="0" y2="28" stroke="#cbd5e1" stroke-width="1.5"/>
+                          <line x1="0" y1="-28" x2="35" y2="-18" stroke="#cbd5e1" stroke-width="1.5"/>
+                          <line x1="0" y1="0" x2="35" y2="-18" stroke="#cbd5e1" stroke-width="1.5"/>
+                          <line x1="0" y1="0" x2="35" y2="18" stroke="#cbd5e1" stroke-width="1.5"/>
+                          <line x1="0" y1="28" x2="35" y2="18" stroke="#cbd5e1" stroke-width="1.5"/>
+                        </g>
+
+                        <!-- Verification Checks Box -->
+                        <rect x="12" y="125" width="161" height="92" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+                        <text x="20" y="142" font-size="8" font-weight="800" fill="#15803d">✔ Fact-Check vs RAG Ground Truth</text>
+                        <text x="20" y="158" font-size="8" font-weight="800" fill="#15803d">✔ Date Math &amp; Expiry Validation</text>
+                        <text x="20" y="174" font-size="8" font-weight="800" fill="#15803d">✔ Auto-Drafts Correction Request</text>
+                        <text x="20" y="190" font-size="8" font-weight="800" fill="#15803d">✔ 3-Tier Workflow Router</text>
+                        <text x="20" y="206" font-size="8" font-weight="800" fill="#15803d">✔ Writes to vendor_audits.json</text>
+                      </g>
+
+                      <!-- Multi-Path Router Decision Card (Lower Intelligence Layer) -->
+                      <g filter="url(#shadow)" transform="translate(715, 320)">
+                        <rect x="0" y="0" width="395" height="95" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+                        <text x="15" y="20" font-size="9" font-weight="800" fill="#0f172a">3-Tier Decision Routing Matrix:</text>
+
+                        <!-- Path 1 -->
+                        <rect x="15" y="32" width="115" height="50" rx="6" fill="#dcfce7" stroke="#86efac"/>
+                        <text x="72" y="48" font-size="8" font-weight="800" fill="#166534" text-anchor="middle">APPROVED</text>
+                        <text x="72" y="62" font-size="7" fill="#15803d" text-anchor="middle">Direct Procurement Sign-Off</text>
+
+                        <!-- Path 2 -->
+                        <rect x="140" y="32" width="115" height="50" rx="6" fill="#fef3c7" stroke="#fde047"/>
+                        <text x="197" y="48" font-size="8" font-weight="800" fill="#92400e" text-anchor="middle">NEEDS_CORRECTION</text>
+                        <text x="197" y="62" font-size="7" fill="#b45309" text-anchor="middle">Auto-Draft Vendor Email</text>
+
+                        <!-- Path 3 -->
+                        <rect x="265" y="32" width="115" height="50" rx="6" fill="#fee2e2" stroke="#fca5a5"/>
+                        <text x="322" y="48" font-size="8" font-weight="800" fill="#991b1b" text-anchor="middle">PENDING_REVIEW</text>
+                        <text x="322" y="62" font-size="7" fill="#b91c1c" text-anchor="middle">Escrow to Compliance</text>
+                      </g>
+
+
+                      <!-- ==================== LAYER 4: ACTION & AUDIT DISPATCHER (BOTTOM) ==================== -->
+                      <rect x="440" y="465" width="680" height="95" rx="16" fill="url(#layerBottom)" stroke="#cbd5e1" stroke-width="1.5" filter="url(#glassShadow)"/>
+                      
+                      <g filter="url(#shadow)" transform="translate(460, 480)">
+                        <!-- Email Service Box -->
+                        <rect x="0" y="0" width="160" height="65" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+                        <!-- Email Envelope Icon -->
+                        <rect x="12" y="15" width="36" height="26" rx="4" fill="#94a3b8"/>
+                        <path d="M 12 15 L 30 30 L 48 15 Z" fill="#64748b"/>
+                        <text x="56" y="28" font-size="9" font-weight="800" fill="#0f172a">API Trigger Engine</text>
+                        <text x="56" y="42" font-size="8" fill="#64748b">SMTP / Email Service</text>
+                      </g>
+
+                      <!-- Arrow to Audit Log -->
+                      <path d="M 630 512 L 670 512" stroke="#475569" stroke-width="2" marker-end="url(#arrowGray)" fill="none"/>
+
+                      <g filter="url(#shadow)" transform="translate(680, 480)">
+                        <!-- Persistent Audit Log File Box -->
+                        <rect x="0" y="0" width="210" height="65" rx="10" fill="#ffffff" stroke="#0284c7"/>
+                        <rect x="12" y="12" width="32" height="40" rx="4" fill="#e0f2fe" stroke="#38bdf8"/>
+                        <text x="28" y="36" font-size="12" text-anchor="middle">📁</text>
+                        <text x="52" y="28" font-size="9" font-weight="800" fill="#0369a1">Persistent Audit Log</text>
+                        <text x="52" y="42" font-size="8" font-weight="700" fill="#0284c7">vendor_audits.json</text>
+                        <text x="52" y="54" font-size="7" fill="#64748b">Complete Decision History</text>
+                      </g>
+
+                      <!-- Arrow to Final Inbox -->
+                      <path d="M 900 512 L 940 512" stroke="#475569" stroke-width="2" marker-end="url(#arrowGray)" fill="none"/>
+
+                      <g filter="url(#shadow)" transform="translate(950, 480)">
+                        <!-- End User / Vendor Inbox -->
+                        <rect x="0" y="0" width="150" height="65" rx="10" fill="#1e293b"/>
+                        <text x="75" y="26" fill="#38bdf8" font-size="9" font-weight="800" text-anchor="middle">End User / Vendor Inbox</text>
+                        <text x="75" y="42" fill="#ffffff" font-size="8" text-anchor="middle">Subject: Onboarding Status</text>
+                        <text x="75" y="54" fill="#a7f3d0" font-size="7" text-anchor="middle">Verified Decision Report</text>
+                      </g>
+
+
+                      <!-- ==================== FLOW ARROWS WITH NUMBERED STEPS ==================== -->
+                      
+                      <!-- Step 1: PDFs -> React UI -->
+                      <path d="M 140 195 L 195 195" stroke="#0284c7" stroke-width="2.5" fill="none" marker-end="url(#arrowBlue)"/>
+                      <circle cx="167" cy="180" r="10" fill="#0284c7" filter="url(#glowBlue)"/>
+                      <text x="167" y="184" fill="#ffffff" font-size="10" font-weight="800" text-anchor="middle">1</text>
+
+                      <!-- Step 2: React UI -> FastAPI -->
+                      <path d="M 400 180 L 455 180" stroke="#0284c7" stroke-width="2.5" fill="none" marker-end="url(#arrowBlue)"/>
+                      <circle cx="427" cy="165" r="10" fill="#0284c7" filter="url(#glowBlue)"/>
+                      <text x="427" y="169" fill="#ffffff" font-size="10" font-weight="800" text-anchor="middle">2</text>
+
+                      <!-- Step 3: PyPDF Text -> ChromaDB -->
+                      <path d="M 645 150 L 715 150" stroke="#0284c7" stroke-width="2.5" fill="none" marker-end="url(#arrowBlue)"/>
+                      <circle cx="680" cy="135" r="10" fill="#0284c7" filter="url(#glowBlue)"/>
+                      <text x="680" y="139" fill="#ffffff" font-size="10" font-weight="800" text-anchor="middle">3</text>
+
+                      <!-- Step 4: ChromaDB RAG -> Gemini Agent -->
+                      <path d="M 895 180 L 925 180" stroke="#a855f7" stroke-width="2.5" fill="none" marker-end="url(#arrowBlue)"/>
+                      <circle cx="910" cy="165" r="10" fill="#8b5cf6"/>
+                      <text x="910" y="169" fill="#ffffff" font-size="10" font-weight="800" text-anchor="middle">4</text>
+
+                      <!-- Step 5: Gemini Agent -> Decision Matrix -->
+                      <path d="M 1010 305 L 1010 320" stroke="#a855f7" stroke-width="2.5" fill="none" marker-end="url(#arrowBlue)"/>
+                      <circle cx="1025" cy="312" r="10" fill="#8b5cf6"/>
+                      <text x="1025" y="316" fill="#ffffff" font-size="10" font-weight="800" text-anchor="middle">5</text>
+
+                      <!-- Step 6: Decision Matrix -> React UI Audio Dashboard -->
+                      <path d="M 715 355 Q 550 400 395 355" stroke="#22c55e" stroke-width="2" stroke-dasharray="4" fill="none" marker-end="url(#arrowGreen)"/>
+                      <circle cx="530" cy="390" r="10" fill="#22c55e"/>
+                      <text x="530" y="394" fill="#ffffff" font-size="10" font-weight="800" text-anchor="middle">6</text>
+
+                      <!-- Step 7: Decision -> Trigger Email & Audit Log -->
+                      <path d="M 800 415 L 800 460" stroke="#0284c7" stroke-width="2.5" fill="none" marker-end="url(#arrowBlue)"/>
+                      <circle cx="815" cy="440" r="10" fill="#0284c7" filter="url(#glowBlue)"/>
+                      <text x="815" y="444" fill="#ffffff" font-size="10" font-weight="800" text-anchor="middle">7</text>
+
+                    </svg>
+
+                </div>
+                
+                <!-- BOTTOM SECTION: Shrinked Technical Cards Locked to Bottom -->
+                <div class="grid grid-cols-3 gap-6 w-full max-w-5xl mx-auto shrink-0 mb-6">
+                    <div class="bg-white/90 backdrop-blur p-3 rounded-lg shadow border border-gray-200 flex items-center">
+                        <span class="bg-blue-500/10 text-blue-600 p-2.5 rounded-md mr-3"><i class="fas fa-server text-sm"></i></span>
+                        <div>
+                            <span class="text-[11px] font-bold text-gray-800 block leading-tight">Parsing & Validation</span>
+                            <span class="text-[9px] text-gray-500">Python / Pandas / PyPDF</span>
+                        </div>
+                    </div>
+                    <div class="bg-white/90 backdrop-blur p-3 rounded-lg shadow border border-gray-200 flex items-center">
+                        <span class="bg-purple-500/10 text-purple-600 p-2.5 rounded-md mr-3"><i class="fas fa-database text-sm"></i></span>
+                        <div>
+                            <span class="text-[11px] font-bold text-gray-800 block leading-tight">Vector Index (all-MiniLM-L6)</span>
+                            <span class="text-[9px] text-gray-500">ChromaDB Local Embeddings</span>
+                        </div>
+                    </div>
+                    <div class="bg-white/90 backdrop-blur p-3 rounded-lg shadow border border-gray-200 flex items-center">
+                        <span class="bg-emerald-500/10 text-emerald-600 p-2.5 rounded-md mr-3"><i class="fas fa-robot text-sm"></i></span>
+                        <div>
+                            <span class="text-[11px] font-bold text-gray-800 block leading-tight">Orchestrators (gpt-4o & Whisper)</span>
+                            <span class="text-[9px] text-gray-500">Decision Routing & Audio Summaries</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </section>
+
+        <!-- Slide 6: Business Benefits -->
+        <section class="slide">
+            <div class="slide-bg-pattern"></div>
+            <header class="header-gradient text-white flex justify-between items-center">
+                <div>
+                    <h1 class="text-3xl font-extrabold">Strategic Business Benefits</h1>
+                    <p class="text-blue-100 opacity-80 uppercase text-xs tracking-widest font-bold">Slide 06: Impact & ROI</p>
+                </div>
+                <i class="fas fa-chart-line text-3xl opacity-40"></i>
+            </header>
+            <main class="flex-grow flex items-center px-12 relative z-10">
+                <div class="grid md:grid-cols-2 gap-10 w-full max-w-5xl mx-auto">
+                    <div class="space-y-4">
+                        <div class="flex items-center p-5 bg-blue-50 rounded-2xl border border-blue-100 shadow-sm">
+                            <i class="fas fa-bolt text-blue-600 text-3xl mr-5"></i>
+                            <div>
+                                <h4 class="font-bold text-blue-950 text-base">Instant Processing Speed</h4>
+                                <p class="text-xs text-gray-600">Reduces average vendor onboarding cycle time by over 80% (from 12 days to under 2 hours).</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-5 bg-green-50 rounded-2xl border border-green-100 shadow-sm">
+                            <i class="fas fa-shield-check text-green-600 text-3xl mr-5"></i>
+                            <div>
+                                <h4 class="font-bold text-green-950 text-base">Zero-Hallucination Compliance</h4>
+                                <p class="text-xs text-gray-600">100% vector-grounded checking ensures strict compliance with internal policies and checklists.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-5 bg-indigo-50 rounded-2xl border border-indigo-100 shadow-sm">
+                            <i class="fas fa-file-contract text-indigo-600 text-3xl mr-5"></i>
+                            <div>
+                                <h4 class="font-bold text-indigo-950 text-base">Complete Audit Readiness</h4>
+                                <p class="text-xs text-gray-600">Retains approved records, decision rationales, raw evidence, and status history for regulatory audits.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900 rounded-3xl p-10 text-white flex flex-col justify-center border border-slate-700 shadow-2xl">
+                        <h3 class="text-cyan-400 font-black text-5xl mb-3 italic">85%+</h3>
+                        <p class="text-2xl font-light">Reduction in Manual Procurement Effort.</p>
+                        <p class="text-xs opacity-70 mt-4 leading-relaxed">
+                            Procurement officers shift from tedious document checking to high-value vendor negotiations, while automated compliance escrow catches high-risk deviations before contracts are awarded.
+                        </p>
+                    </div>
+                </div>
+            </main>
+        </section>
+
+        <!-- Slide 7: Future Roadmap -->
+        <section class="slide">
+            <div class="slide-bg-pattern"></div>
+            <header class="header-gradient text-white flex justify-between items-center">
+                <div>
+                    <h1 class="text-3xl font-extrabold">Future Expansion Roadmap</h1>
+                    <p class="text-blue-100 opacity-80 uppercase text-xs tracking-widest font-bold">Slide 07: Scalable Innovation</p>
+                </div>
+                <i class="fas fa-map-location-dot text-3xl opacity-40"></i>
+            </header>
+            <main class="flex-grow flex flex-col justify-center px-12 relative z-10">
+                <div class="grid grid-cols-3 gap-6 w-full max-w-6xl mx-auto mb-8">
+                    <div class="glass-card p-8 border-b-8 border-blue-600">
+                        <span class="bg-blue-100 text-blue-800 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase mb-4 inline-block">Phase 1: Current MVP</span>
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">Core Automation Engine</h4>
+                        <ul class="text-xs text-gray-600 space-y-2">
+                            <li>• Multi-PDF extraction & parsing</li>
+                            <li>• Vector DB policy rule matching</li>
+                            <li>• Auto correction drafts & 3-path routing</li>
+                        </ul>
+                    </div>
+                    <div class="glass-card p-8 border-b-8 border-purple-600">
+                        <span class="bg-purple-100 text-purple-800 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase mb-4 inline-block">Phase 2: Near Term</span>
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">ERP Integration & Self-Service</h4>
+                        <ul class="text-xs text-gray-600 space-y-2">
+                            <li>• Direct SAP / Oracle Vendor Master sync</li>
+                            <li>• Automated bank account validation APIs</li>
+                            <li>• Interactive vendor self-service chat portal</li>
+                        </ul>
+                    </div>
+                    <div class="glass-card p-8 border-b-8 border-emerald-600">
+                        <span class="bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase mb-4 inline-block">Phase 3: Long Term</span>
+                        <h4 class="font-bold text-lg text-gray-800 mb-2">Continuous Compliance Lifecycle</h4>
+                        <ul class="text-xs text-gray-600 space-y-2">
+                            <li>• Automated document expiry monitoring</li>
+                            <li>• Dynamic vendor risk scoring & alerts</li>
+                            <li>• Multi-region localized regulatory RAG</li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+        </section>
+
+        <!-- Slide 8: Closing -->
+        <section class="slide">
+            <div class="slide-bg-pattern"></div>
+            <header class="header-gradient text-white flex justify-between items-center">
+                <div>
+                    <h1 class="text-3xl font-extrabold">Transforming Vendor Onboarding</h1>
+                    <p class="text-blue-100 opacity-80 uppercase text-xs tracking-widest font-bold">Slide 08: Summary & Key Takeaways</p>
+                </div>
+                <i class="fas fa-handshake-angle text-3xl opacity-40"></i>
+            </header>
+            <main class="flex-grow flex items-center px-12 relative z-10">
+                <div class="glass-card p-10 max-w-4xl mx-auto text-center border-t-8 border-blue-800 w-full shadow-2xl">
+                    <i class="fas fa-shield-check text-5xl text-blue-700 mb-4"></i>
+                    <h2 class="text-3xl font-extrabold text-blue-950 mb-4">Fast. Compliant. Audit-Proof.</h2>
+                    <p class="text-gray-600 text-base max-w-2xl mx-auto leading-relaxed mb-8">
+                        The AI Vendor Onboarding & Approval Assistant bridges the gap between complex unstructured documents and strict corporate compliance—delivering immediate ROI for procurement operations.
+                    </p>
+                    <div class="grid grid-cols-3 gap-4 mb-8 text-left">
+                        <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
+                            <span class="font-bold text-blue-900 text-sm block">⚡ 80% Cycle Reduction</span>
+                            <span class="text-[11px] text-gray-500">From 14 days down to hours</span>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-xl border border-purple-100">
+                            <span class="font-bold text-purple-900 text-sm block">🔍 Zero-Hallucination</span>
+                            <span class="text-[11px] text-gray-500">Vector-grounded compliance RAG</span>
+                        </div>
+                        <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                            <span class="font-bold text-emerald-900 text-sm block">📋 100% Audit Ready</span>
+                            <span class="text-[11px] text-gray-500">End-to-end decision logs</span>
+                        </div>
+                    </div>
+                    <button onclick="changeSlide(0)" class="bg-blue-900 text-white px-10 py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-blue-700 transition-all shadow-lg">
+                        Restart Presentation
+                    </button>
+                </div>
+            </main>
+        </section>
+
+    </div>
+
+    <button class="nav-btn" id="prevBtn" onclick="move(-1)"><i class="fas fa-chevron-left mr-2"></i> Previous</button>
+    <button class="nav-btn" id="nextBtn" onclick="move(1)">Next <i class="fas fa-chevron-right ml-2"></i></button>
+
+    <footer class="footer">
+        AI Vendor Onboarding & Approval Assistant • Technical Pitch Deck
+    </footer>
+
+    <script>
+        let currentIdx = 0;
+        const total = 8;
+        const track = document.getElementById('slider');
+        const prog = document.getElementById('progBar');
+
+        function move(dir) {
+            currentIdx = Math.max(0, Math.min(total - 1, currentIdx + dir));
+            update();
+        }
+
+        function changeSlide(idx) {
+            currentIdx = idx;
+            update();
+        }
+
+        function update() {
+            track.style.transform = `translateX(-${currentIdx * 100}vw)`;
+            prog.style.width = `${((currentIdx + 1) / total) * 100}%`;
+            
+            document.getElementById('prevBtn').style.opacity = currentIdx === 0 ? "0.3" : "1";
+            document.getElementById('nextBtn').style.opacity = currentIdx === total - 1 ? "0.3" : "1";
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') move(1);
+            if (e.key === 'ArrowLeft') move(-1);
+        });
+
+        update();
+    </script>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1150 580" style="width:100%; height:auto; background: linear-gradient(135deg, #eef2f6 0%, #e2e8f0 100%); font-family:'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; border-radius:18px; box-shadow:0 25px 50px -12px rgba(0,0,0,0.15); padding:10px;">
+  <defs>
+    <!-- Shadows & Filters -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <filter id="glassShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#1e293b" flood-opacity="0.08"/>
+    </filter>
+    <filter id="glowBlue" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Gradients -->
+    <linearGradient id="layerBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e0f2fe" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#bae6fd" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="layerGray" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#f1f5f9" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="layerPurple" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f3e8ff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#e9d5ff" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="layerBottom" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e0f2fe" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#f1f5f9" stop-opacity="0.8"/>
+    </linearGradient>
+
+    <!-- Metallic Card Gradient -->
+    <linearGradient id="metalCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <linearGradient id="goldBadge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+
+    <!-- Arrow Markers -->
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#475569"/>
+    </marker>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284c7"/>
+    </marker>
+  </defs>
+
+  <!-- ==================== LAYER 1: FRONTEND CONTAINER ==================== -->
+  <rect x="180" y="20" width="220" height="420" rx="20" fill="url(#layerBlue)" stroke="#93c5fd" stroke-width="1.5" filter="url(#glassShadow)"/>
+  <text x="290" y="45" font-weight="800" font-size="13" fill="#1e40af" text-anchor="middle">Frontend: React UI</text>
+  <text x="290" y="60" font-weight="600" font-size="11" fill="#3b82f6" text-anchor="middle">Application Screen</text>
+
+  <!-- React Window Mockup -->
+  <g filter="url(#shadow)" transform="translate(195, 75)">
+    <!-- Window Header -->
+    <rect x="0" y="0" width="190" height="230" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+    <rect x="0" y="0" width="190" height="22" rx="12" fill="#e2e8f0"/>
+    <circle cx="12" cy="11" r="3.5" fill="#ef4444"/>
+    <circle cx="22" cy="11" r="3.5" fill="#f59e0b"/>
+    <circle cx="32" cy="11" r="3.5" fill="#22c55e"/>
+    <text x="95" y="15" font-size="8" font-weight="700" fill="#64748b" text-anchor="middle">Vendor Onboarding Portal</text>
+    
+    <!-- UI Controls Mockup -->
+    <rect x="12" y="32" width="166" height="32" rx="6" fill="#2563eb"/>
+    <text x="95" y="52" fill="#ffffff" font-size="10" font-weight="700" text-anchor="middle">Submit Vendor Docs</text>
+
+    <rect x="12" y="72" width="166" height="32" rx="6" fill="#ea580c"/>
+    <text x="95" y="92" fill="#ffffff" font-size="10" font-weight="700" text-anchor="middle">Validate Compliance</text>
+
+    <!-- Status Badge Mockup -->
+    <rect x="12" y="115" width="166" height="100" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <rect x="20" y="125" width="110" height="16" rx="4" fill="#dcfce7"/>
+    <text x="75" y="136" fill="#15803d" font-size="8" font-weight="800" text-anchor="middle">Status: APPROVED</text>
+    <text x="20" y="155" font-size="8" fill="#475569">• Entity: Ahold Delhaize</text>
+    <text x="20" y="168" font-size="8" fill="#475569">• Checklist: 100% Passed</text>
+    <text x="20" y="181" font-size="8" fill="#475569">• Expiry: 2028-12-31</text>
+    <text x="20" y="194" font-size="8" fill="#475569">• Citation: Rule 4.2.1</text>
+  </g>
+
+  <!-- React Logo Watermark -->
+  <g transform="translate(290, 360) scale(0.6)" opacity="0.35">
+    <ellipse cx="0" cy="0" rx="30" ry="10" fill="none" stroke="#0284c7" stroke-width="3"/>
+    <ellipse cx="0" cy="0" rx="30" ry="10" fill="none" stroke="#0284c7" stroke-width="3" transform="rotate(60)"/>
+    <ellipse cx="0" cy="0" rx="30" ry="10" fill="none" stroke="#0284c7" stroke-width="3" transform="rotate(120)"/>
+    <circle cx="0" cy="0" r="5" fill="#0284c7"/>
+  </g>
+
+
+  <!-- ==================== RAW INPUT PDFs (LEFT) ==================== -->
+  <g filter="url(#shadow)" transform="translate(25, 120)">
+    <rect x="0" y="0" width="115" height="150" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <!-- PDF Header Red Tab -->
+    <path d="M 0 10 Q 0 0 10 0 L 105 0 Q 115 0 115 10 L 115 28 L 0 28 Z" fill="#dc2626"/>
+    <text x="57" y="18" fill="#ffffff" font-size="11" font-weight="800" text-anchor="middle">PDF PACKAGE</text>
+    
+    <text x="10" y="45" font-size="8" font-weight="700" fill="#1e293b">1. Reg Certificate</text>
+    <text x="10" y="60" font-size="8" font-weight="700" fill="#1e293b">2. Tax ID / GSTIN</text>
+    <text x="10" y="75" font-size="8" font-weight="700" fill="#1e293b">3. Bank Proof</text>
+    <text x="10" y="90" font-size="8" font-weight="700" fill="#1e293b">4. Insurance Cert</text>
+    <text x="10" y="105" font-size="8" font-weight="700" fill="#1e293b">5. Compliance Decl.</text>
+    
+    <rect x="10" y="118" width="95" height="20" rx="4" fill="#fee2e2" stroke="#fca5a5"/>
+    <text x="57" y="131" fill="#991b1b" font-size="8" font-weight="700" text-anchor="middle">5–10 Vendor PDFs</text>
+  </g>
+  <text x="82" y="290" font-weight="700" font-size="11" fill="#475569" text-anchor="middle">Unstructured Vendor</text>
+  <text x="82" y="304" font-weight="700" font-size="11" fill="#475569" text-anchor="middle">Documents</text>
+
+
+  <!-- ==================== LAYER 2: BACKEND CONTAINER ==================== -->
+  <rect x="440" y="20" width="220" height="420" rx="20" fill="url(#layerGray)" stroke="#cbd5e1" stroke-width="1.5" filter="url(#glassShadow)"/>
+  <text x="550" y="45" font-weight="800" font-size="13" fill="#0f172a" text-anchor="middle">Backend: FastAPI Processing</text>
+  <text x="550" y="60" font-weight="600" font-size="11" fill="#64748b" text-anchor="middle">Python / PyPDF Engine</text>
+
+  <g filter="url(#shadow)" transform="translate(455, 75)">
+    <rect x="0" y="0" width="190" height="340" rx="12" fill="url(#metalCard)" stroke="#cbd5e1"/>
+    
+    <!-- Python & PyPDF Branding Header -->
+    <rect x="12" y="12" width="166" height="36" rx="8" fill="#1e293b"/>
+    <text x="95" y="34" fill="#38bdf8" font-size="11" font-weight="800" text-anchor="middle">🐍 FastAPI + PyPDF</text>
+    
+    <!-- Extraction Table Mockup -->
+    <rect x="12" y="58" width="166" height="120" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <path d="M 12 78 L 178 78" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="20" y="72" font-size="8" font-weight="800" fill="#0f172a">Extracted Field</text>
+    <text x="110" y="72" font-size="8" font-weight="800" fill="#0f172a">Parsed Value</text>
+
+    <text x="20" y="92" font-size="8" fill="#475569">Entity Name</text>
+    <text x="110" y="92" font-size="8" font-weight="700" fill="#0284c7">Ahold Delhaize</text>
+    <text x="20" y="108" font-size="8" fill="#475569">Tax ID / GST</text>
+    <text x="110" y="108" font-size="8" font-weight="700" fill="#0284c7">33AAAAA0000A1Z5</text>
+    <text x="20" y="124" font-size="8" fill="#475569">Expiry Date</text>
+    <text x="110" y="124" font-size="8" font-weight="700" fill="#16a34a">2028-12-31</text>
+    <text x="20" y="140" font-size="8" fill="#475569">Policy Limit</text>
+    <text x="110" y="140" font-size="8" font-weight="700" fill="#0284c7">$2,000,000</text>
+    <text x="20" y="156" font-size="8" fill="#475569">Bank Match</text>
+    <text x="110" y="156" font-size="8" font-weight="700" fill="#16a34a">100% Match</text>
+
+    <rect x="12" y="190" width="166" height="135" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="95" y="210" font-size="9" font-weight="800" fill="#334155" text-anchor="middle">Data Pipeline Operations</text>
+    <text x="22" y="230" font-size="8" fill="#64748b">• PyPDF Stream Text Parsing</text>
+    <text x="22" y="248" font-size="8" fill="#64748b">• Overlapping Chunking (1000/100)</text>
+    <text x="22" y="266" font-size="8" fill="#64748b">• Expiration Date Math Checks</text>
+    <text x="22" y="284" font-size="8" fill="#64748b">• Normalization &amp; JSON Schema</text>
+    <text x="22" y="302" font-size="8" fill="#64748b">• Cross-Doc Entity Match</text>
+  </g>
+
+
+  <!-- ==================== LAYER 3: INTELLIGENCE & RAG CONTAINER ==================== -->
+  <rect x="700" y="20" width="420" height="420" rx="20" fill="url(#layerPurple)" stroke="#c084fc" stroke-width="1.5" filter="url(#glassShadow)"/>
+  <text x="910" y="45" font-weight="800" font-size="13" fill="#6b21a8" text-anchor="middle">Intelligence Layer: Vector RAG &amp; Multi-Agent System</text>
+
+  <!-- Agent 1: ChromaDB + Vector RAG -->
+  <g filter="url(#shadow)" transform="translate(715, 75)">
+    <rect x="0" y="0" width="180" height="230" rx="12" fill="#ffffff" stroke="#d8b4fe"/>
+    <rect x="0" y="0" width="180" height="28" rx="12" fill="#f3e8ff"/>
+    <text x="90" y="18" font-size="9" font-weight="800" fill="#7e22ce" text-anchor="middle">Agent 1: ChromaDB Vector Store</text>
+    <text x="90" y="38" font-size="8" font-weight="700" fill="#a855f7" text-anchor="middle">(Embedding Policy Search)</text>
+
+    <!-- Vector DB Illustration -->
+    <rect x="25" y="52" width="130" height="75" rx="6" fill="#faf5ff" stroke="#e9d5ff"/>
+    <circle cx="50" cy="75" r="5" fill="#a855f7"/>
+    <circle cx="85" cy="65" r="5" fill="#7e22ce"/>
+    <circle cx="115" cy="85" r="5" fill="#c084fc"/>
+    <circle cx="70" cy="105" r="5" fill="#0284c7"/>
+    <line x1="50" y1="75" x2="85" y2="65" stroke="#d8b4fe" stroke-width="1.5"/>
+    <line x1="85" y1="65" x2="115" y2="85" stroke="#d8b4fe" stroke-width="1.5"/>
+    <line x1="50" y1="75" x2="70" y2="105" stroke="#d8b4fe" stroke-width="1.5"/>
+    <line x1="85" y1="65" x2="70" y2="105" stroke="#d8b4fe" stroke-width="1.5"/>
+
+    <text x="15" y="142" font-size="8" fill="#6b21a8">• text-embedding-004 Model</text>
+    <text x="15" y="156" font-size="8" fill="#6b21a8">• Onboarding Checklist Index</text>
+    <text x="15" y="170" font-size="8" fill="#6b21a8">• Policy Rules Semantic Query</text>
+    <text x="15" y="184" font-size="8" fill="#6b21a8">• Relevant Rule Chunk Context</text>
+
+    <rect x="15" y="196" width="150" height="22" rx="5" fill="url(#goldBadge)"/>
+    <text x="90" y="210" font-size="8" font-weight="800" fill="#78350f" text-anchor="middle">🛡️ Grounded Policy RAG</text>
+  </g>
+
+  <!-- Agent 2: Gemini Flash Reasoning Agent -->
+  <g filter="url(#shadow)" transform="translate(925, 75)">
+    <rect x="0" y="0" width="185" height="230" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+    <rect x="0" y="0" width="185" height="28" rx="12" fill="#f1f5f9"/>
+    <text x="92" y="18" font-size="9" font-weight="800" fill="#0f172a" text-anchor="middle">Agent 2: Gemini Flash Agent</text>
+    <text x="92" y="38" font-size="8" font-weight="700" fill="#475569" text-anchor="middle">(Compliance Auditor &amp; Router)</text>
+
+    <!-- Neural Network Node Illustration -->
+    <g transform="translate(92, 82)">
+      <circle cx="-35" cy="-18" r="6" fill="#3b82f6"/>
+      <circle cx="-35" cy="18" r="6" fill="#3b82f6"/>
+      <circle cx="0" cy="-28" r="6" fill="#8b5cf6"/>
+      <circle cx="0" cy="0" r="6" fill="#8b5cf6"/>
+      <circle cx="0" cy="28" r="6" fill="#8b5cf6"/>
+      <circle cx="35" cy="-18" r="6" fill="#10b981"/>
+      <circle cx="35" cy="18" r="6" fill="#10b981"/>
+
+      <line x1="-35" y1="-18" x2="0" y2="-28" stroke="#cbd5e1" stroke-width="1.5"/>
+      <line x1="-35" y1="-18" x2="0" y2="0" stroke="#cbd5e1" stroke-width="1.5"/>
+      <line x1="-35" y1="18" x2="0" y2="0" stroke="#cbd5e1" stroke-width="1.5"/>
+      <line x1="-35" y1="18" x2="0" y2="28" stroke="#cbd5e1" stroke-width="1.5"/>
+      <line x1="0" y1="-28" x2="35" y2="-18" stroke="#cbd5e1" stroke-width="1.5"/>
+      <line x1="0" y1="0" x2="35" y2="-18" stroke="#cbd5e1" stroke-width="1.5"/>
+      <line x1="0" y1="0" x2="35" y2="18" stroke="#cbd5e1" stroke-width="1.5"/>
+      <line x1="0" y1="28" x2="35" y2="18" stroke="#cbd5e1" stroke-width="1.5"/>
+    </g>
+
+    <!-- Verification Checks Box -->
+    <rect x="12" y="125" width="161" height="92" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="20" y="142" font-size="8" font-weight="800" fill="#15803d">✔ Fact-Check vs RAG Ground Truth</text>
+    <text x="20" y="158" font-size="8" font-weight="800" fill="#15803d">✔ Date Math &amp; Expiry Validation</text>
+    <text x="20" y="174" font-size="8" font-weight="800" fill="#15803d">✔ Auto-Drafts Correction Request</text>
+    <text x="20" y="190" font-size="8" font-weight="800" fill="#15803d">✔ 3-Tier Workflow Router</text>
+    <text x="20" y="206" font-size="8" font-weight="800" fill="#15803d">✔ Writes to vendor_audits.json</text>
+  </g>
+
+  <!-- Multi-Path Router Decision Card (Lower Intelligence Layer) -->
+  <g filter="url(#shadow)" transform="translate(715, 320)">
+    <rect x="0" y="0" width="395" height="95" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="15" y="20" font-size="9" font-weight="800" fill="#0f172a">3-Tier Decision Routing Matrix:</text>
+
+    <!-- Path 1 -->
+    <rect x="15" y="32" width="115" height="50" rx="6" fill="#dcfce7" stroke="#86efac"/>
+    <text x="72" y="48" font-size="8" font-weight="800" fill="#166534" text-anchor="middle">APPROVED</text>
+    <text x="72" y="62" font-size="7" fill="#15803d" text-anchor="middle">Direct Procurement Sign-Off</text>
+
+    <!-- Path 2 -->
+    <rect x="140" y="32" width="115" height="50" rx="6" fill="#fef3c7" stroke="#fde047"/>
+    <text x="197" y="48" font-size="8" font-weight="800" fill="#92400e" text-anchor="middle">NEEDS_CORRECTION</text>
+    <text x="197" y="62" font-size="7" fill="#b45309" text-anchor="middle">Auto-Draft Vendor Email</text>
+
+    <!-- Path 3 -->
+    <rect x="265" y="32" width="115" height="50" rx="6" fill="#fee2e2" stroke="#fca5a5"/>
+    <text x="322" y="48" font-size="8" font-weight="800" fill="#991b1b" text-anchor="middle">PENDING_REVIEW</text>
+    <text x="322" y="62" font-size="7" fill="#b91c1c" text-anchor="middle">Escrow to Compliance</text>
+  </g>
+
+
+  <!-- ==================== LAYER 4: ACTION & AUDIT DISPATCHER (BOTTOM) ==================== -->
+  <rect x="440" y="465" width="680" height="95" rx="16" fill="url(#layerBottom)" stroke="#cbd5e1" stroke-width="1.5" filter="url(#glassShadow)"/>
+  
+  <g filter="url(#shadow)" transform="translate(460, 480)">
+    <!-- Email Service Box -->
+    <rect x="0" y="0" width="160" height="65" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <!-- Email Envelope Icon -->
+    <rect x="12" y="15" width="36" height="26" rx="4" fill="#94a3b8"/>
+    <path d="M 12 15 L 30 30 L 48 15 Z" fill="#64748b"/>
+    <text x="56" y="28" font-size="9" font-weight="800" fill="#0f172a">API Trigger Engine</text>
+    <text x="56" y="42" font-size="8" fill="#64748b">SMTP / Email Service</text>
+  </g>
+
+  <!-- Arrow to Audit Log -->
+  <path d="M 630 512 L 670 512" stroke="#475569" stroke-width="2" marker-end="url(#arrowGray)" fill="none"/>
+
+  <g filter="url(#shadow)" transform="translate(680, 480)">
+    <!-- Persistent Audit Log File Box -->
+    <rect x="0" y="0" width="210" height="65" rx="10" fill="#ffffff" stroke="#0284c7"/>
+    <rect x="12" y="12" width="32" height="40" rx="4" fill="#e0f2fe" stroke="#38bdf8"/>
+    <text x="28" y="36" font-size="12" text-anchor="middle">📁</text>
+    <text x="52" y="28" font-size="9" font-weight="800" fill="#0369a1">Persistent Audit Log</text>
+    <text x="52" y="42" font-size="8" font-weight="700" fill="#0284c7">vendor_audits.json</text>
+    <text x="52" y="54" font-size="7" fill="#64748b">Complete Decision History</text>
+  </g>
+
+  <!-- Arrow to Final Inbox -->
+  <path d="M 900 512 L 940 512" stroke="#475569" stroke-width="2" marker-end="url(#arrowGray)" fill="none"/>
+
+  <g filter="url(#shadow)" transform="translate(950, 480)">
+    <!-- End User / Vendor Inbox -->
+    <rect x="0" y="0" width="150" height="65" rx="10" fill="#1e293b"/>
+    <text x="75" y="26" fill="#38bdf8" font-size="9" font-weight="800" text-anchor="middle">End User / Vendor Inbox</text>
+    <text x="75" y="42" fill="#ffffff" font-size="8" text-anchor="middle">Subject: Onboarding Status</text>
+    <text x="75" y="54" fill="#a7f3d0" font-size="7" text-anchor="middle">Verified Decision Report</text>
+  </g>
+
+
+  <!-- ==================== FLOW ARROWS WITH NUMBERED STEPS ==================== -->
+  
+  <!-- Step 1: PDFs -> React UI -->
+  <path d="M 140 195 L 195 195" stroke="#0284c7" stroke-width="2.5" fill="none" marker-end="url(#arrowBlue)"/>
+  <circle cx="167" cy="180" r="10" fill="#0284c7" filter="url(#glowBlue)"/>
+  <text x="167" y="184" fill="#ffffff" font-size="10" font-weight="800" text-anchor="middle">1</text>
+
+  <!-- Step 2: React UI -> FastAPI -->
+  <path d="M 400 180 L 455 180" stroke="#0284c7" stroke-width="2.5" fill="none" marker-end="url(#arrowBlue)"/>
+  <circle cx="427" cy="165" r="10" fill="#0284c7" filter="url(#glowBlue)"/>
+  <text x="427" y="169" fill="#ffffff" font-size="10" font-weight="800" text-anchor="middle">2</text>
+
+  <!-- Step 3: PyPDF Text -> ChromaDB -->
+  <path d="M 645 150 L 715 150" stroke="#0284c7" stroke-width="2.5" fill="none" marker-end="url(#arrowBlue)"/>
+  <circle cx="680" cy="135" r="10" fill="#0284c7" filter="url(#glowBlue)"/>
+  <text x="680" y="139" fill="#ffffff" font-size="10" font-weight="800" text-anchor="middle">3</text>
+
+  <!-- Step 4: ChromaDB RAG -> Gemini Agent -->
+  <path d="M 895 180 L 925 180" stroke="#a855f7" stroke-width="2.5" fill="none" marker-end="url(#arrowBlue)"/>
+  <circle cx="910" cy="165" r="10" fill="#8b5cf6"/>
+  <text x="910" y="169" fill="#ffffff" font-size="10" font-weight="800" text-anchor="middle">4</text>
+
+  <!-- Step 5: Gemini Agent -> Decision Matrix -->
+  <path d="M 1010 305 L 1010 320" stroke="#a855f7" stroke-width="2.5" fill="none" marker-end="url(#arrowBlue)"/>
+  <circle cx="1025" cy="312" r="10" fill="#8b5cf6"/>
+  <text x="1025" y="316" fill="#ffffff" font-size="10" font-weight="800" text-anchor="middle">5</text>
+
+  <!-- Step 6: Decision Matrix -> React UI Dashboard Feedback Loop -->
+  <path d="M 715 370 Q 300 470 290 310" stroke="#475569" stroke-width="2" stroke-dasharray="4" fill="none" marker-end="url(#arrowGray)"/>
+  <circle cx="480" cy="425" r="10" fill="#475569"/>
+  <text x="480" y="429" fill="#ffffff" font-size="10" font-weight="800" text-anchor="middle">6</text>
+
+  <!-- Step 7: Decision -> Trigger Email & Audit Log -->
+  <path d="M 800 415 L 800 460" stroke="#0284c7" stroke-width="2.5" fill="none" marker-end="url(#arrowBlue)"/>
+  <circle cx="815" cy="440" r="10" fill="#0284c7" filter="url(#glowBlue)"/>
+  <text x="815" y="444" fill="#ffffff" font-size="10" font-weight="800" text-anchor="middle">7</text>
+
+</svg>
